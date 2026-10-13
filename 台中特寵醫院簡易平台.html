@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>台中特寵照護指南</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background-color: #fdfbf7;
+        font-family: "Microsoft JhengHei", sans-serif;
+        color: #3d405b;
+      }
+
+      .text-dark {
+        color: #3d405b !important;
+      }
+      .text-secondary {
+        color: #787a91 !important;
+      }
+      .text-muted {
+        color: #9b9ca7 !important;
+      }
+      .text-teal {
+        color: #e07a5f !important;
+      }
+      .bg-light {
+        background-color: #f4f1de !important;
+      }
+
+      /* 改版後的標題區 */
+      .header-banner {
+        margin-bottom: 32px;
+        padding: 26px 20px;
+        color: #3d405b;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(224, 122, 95, 0.14),
+            rgba(244, 162, 97, 0.04)
+          ),
+          #fffaf6;
+        border-bottom: 1px solid #f0ddd4;
+      }
+
+      .header-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .title-group {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .title-icon {
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        color: white;
+        background: #e07a5f;
+        border-radius: 16px 8px 16px 8px;
+        font-size: 1.25rem;
+        box-shadow: 0 8px 18px rgba(224, 122, 95, 0.2);
+      }
+
+      .title-kicker {
+        margin: 0 0 2px;
+        color: #e07a5f;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+      }
+
+      .header-banner h1 {
+        margin: 0;
+        color: #3d405b;
+        font-size: 1.75rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .title-description {
+        margin: 3px 0 0;
+        color: #787a91;
+        font-size: 0.85rem;
+      }
+
+      .header-tag {
+        position: absolute;
+        right: 0;
+        padding: 7px 13px;
+        color: #666879;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid #eaded8;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+
+      .header-tag i {
+        margin-right: 5px;
+        color: #e07a5f;
+      }
+
+      .custom-card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        border-radius: 12px;
+      }
+
+      .custom-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(61, 64, 91, 0.08) !important;
+      }
+
+      .custom-badge {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+        border-radius: 30px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .hover-link {
+        transition: color 0.2s ease;
+      }
+      .hover-link:hover {
+        color: #e07a5f !important;
+        text-decoration: underline !important;
+      }
+
+      @media (max-width: 576px) {
+        .header-banner {
+          padding: 22px 16px;
+        }
+
+        .title-group {
+          gap: 13px;
+        }
+
+        .title-icon {
+          width: 44px;
+          height: 44px;
+          border-radius: 13px 7px 13px 7px;
+          font-size: 1.05rem;
+        }
+
+        .header-banner h1 {
+          font-size: 1.35rem;
+        }
+
+        .title-kicker {
+          font-size: 0.6rem;
+        }
+
+        .title-description {
+          font-size: 0.76rem;
+        }
+
+        .header-tag {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header-banner">
+      <div class="header-inner">
+        <div class="title-group">
+          <div class="title-icon" aria-hidden="true">
+            <i class="fa-solid fa-paw"></i>
+          </div>
+
+          <div>
+            <p class="title-kicker">TAICHUNG EXOTIC PET GUIDE</p>
+            <h1>台中特寵醫院搜索</h1>
+            <p class="title-description">查找特殊寵物醫院與特定寵物店家</p>
+          </div>
+        </div>
+
+        <span class="header-tag">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          台中市
+        </span>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div
+            class="card p-4 border-0 shadow-sm custom-card"
+            style="border-radius: 12px"
+          >
+            <h4 class="card-title mb-4 text-dark fw-bold">
+              <i class="fa-solid fa-sliders text-teal me-2"></i>篩選條件
+            </h4>
+
+            <form id="searchForm">
+              <div class="mb-3">
+                <label
+                  for="selectDistrict"
+                  class="form-label fw-semibold text-secondary"
+                >
+                  1. 選擇行政區
+                </label>
+                <select id="selectDistrict" class="form-select">
+                  <option value="all">全部行政區</option>
+                  <option value="西區">西區</option>
+                  <option value="南區">南區</option>
+                  <option value="南屯區">南屯區</option>
+                  <option value="北屯區">北屯區</option>
+                  <option value="西屯區">西屯區</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label
+                  for="selectType"
+                  class="form-label fw-semibold text-secondary"
+                >
+                  2. 選擇服務種類
+                </label>
+                <select id="selectType" class="form-select">
+                  <option value="all">全部種類</option>
+                  <option value="醫院">特殊寵物獸醫院</option>
+                  <option value="店家">合法特定寵物業 (犬貓)</option>
+                </select>
+              </div>
+            </form>
+          </div>
+
+          <div
+            id="petCarousel"
+            class="carousel slide mt-4 shadow-sm custom-card overflow-hidden"
+            data-bs-ride="carousel"
+            style="border-radius: 12px"
+          >
+            <div class="carousel-indicators mb-2">
+              <button
+                type="button"
+                data-bs-target="#petCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-label="兔子圖片"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#petCarousel"
+                data-bs-slide-to="1"
+                aria-label="貓咪圖片"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#petCarousel"
+                data-bs-slide-to="2"
+                aria-label="狗狗圖片"
+              ></button>
+            </div>
+
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="3000">
+                <img
+                  src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=500&amp;auto=format&amp;fit=crop"
+                  class="d-block w-100"
+                  style="height: 180px; object-fit: cover"
+                  alt="白色兔子"
+                />
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <img
+                  src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&amp;auto=format&amp;fit=crop"
+                  class="d-block w-100"
+                  style="height: 180px; object-fit: cover"
+                  alt="貓咪"
+                />
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <img
+                  src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500&amp;auto=format&amp;fit=crop"
+                  class="d-block w-100"
+                  style="height: 180px; object-fit: cover"
+                  alt="狗狗"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="mb-3">
+            <h2 class="h4 fw-bold text-dark m-0 d-flex align-items-center">
+              <i class="fa-solid fa-list text-teal me-2"></i>查詢結果列表
+            </h2>
+            <p class="text-muted small mt-1 mb-4">
+              下列清單為台中合規特殊寵物醫院與特定寵物店家資訊
+            </p>
+          </div>
+
+          <div
+            class="row row-cols-1 row-cols-md-2 g-3"
+            id="cardsContainer"
+          ></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center py-4 text-secondary mt-5 small">
+      <p>特寵查詢系統 專題練習</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const pet_Date = [
+        {
+          name: "侏儸紀野生動物專科醫院",
+          type: "醫院",
+          district: "西區",
+          phone: "04-2375-7808",
+          address: "403臺中市西區安龍里英才路625號",
+        },
+        {
+          name: "達爾文動物醫院",
+          type: "醫院",
+          district: "西區",
+          phone: "04-2326-2759",
+          address: "403臺中市西區忠明里博館路157號",
+        },
+        {
+          name: "全國動物醫院",
+          type: "醫院",
+          district: "西區",
+          phone: "04-2371-0496",
+          address: "403臺中市西區吉龍里五權八街100號",
+        },
+        {
+          name: "伴心特殊寵物專科醫院",
+          type: "醫院",
+          district: "南屯區",
+          phone: "04-2323-1788",
+          address: "408臺中市南屯區惠中里文心路一段430號",
+        },
+        {
+          name: "台中凡賽爾賽鴿動物醫院",
+          type: "醫院",
+          district: "西屯區",
+          phone: "04-2312-1880",
+          address: "407臺中市西屯區何安里重慶路8號",
+        },
+        {
+          name: "小島動物醫院",
+          type: "店家",
+          district: "西區",
+          phone: "04-2376-7158",
+          address: "40346臺中市西區三民西路83號",
+        },
+        {
+          name: "兔兔窩",
+          type: "店家",
+          district: "南區",
+          phone: "04-2287-2502",
+          address: "402臺中市南區德義里國光路154號",
+        },
+        {
+          name: "森林兔Forest Rabbit",
+          type: "店家",
+          district: "西屯區",
+          phone: "04-2251-3396",
+          address: "407臺中市西屯區惠來里惠中一街28號",
+        },
+        {
+          name: "金瑞成鸚鵡概念館",
+          type: "店家",
+          district: "西屯區",
+          phone: "04-2314-6307",
+          address: "407臺中市西屯區惠來里西屯路二段190號",
+        },
+      ];
+
+      const cardsContainer = document.getElementById("cardsContainer");
+      const selectDistrict = document.getElementById("selectDistrict");
+      const selectType = document.getElementById("selectType");
+
+      function renderData(dataArray) {
+        let htmlString = "";
+
+        if (dataArray.length === 0) {
+          cardsContainer.innerHTML = `
+            <div class="col-12 text-center py-5 text-muted">
+              <i class="fa-regular fa-folder-open fa-2x mb-2 d-block"></i>
+              查無符合條件的特寵院所！
+            </div>`;
+          return;
+        }
+
+        dataArray.forEach(function (item) {
+          const isHospital = item.type === "醫院";
+          const themeColor = isHospital ? "#81B29A" : "#F4A261";
+
+          const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.name + " " + item.address)}`;
+
+          htmlString += `
+            <div class="col">
+              <div class="card h-100 border-0 shadow-sm custom-card">
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                  <div>
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                      <h3 class="card-title fw-bold m-0 me-2" style="font-size: 1.1rem;">
+                        <a
+                          href="${mapUrl}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-decoration-none text-dark hover-link"
+                          title="點擊前往 Google 地圖"
+                        >
+                          ${item.name}
+                          <i class="fa-solid fa-arrow-up-right-from-square ms-1 text-muted" style="font-size: 0.75rem;"></i>
+                        </a>
+                      </h3>
+
+                      <span class="custom-badge" style="background-color: ${themeColor}15; color: ${themeColor}; border: 1px solid ${themeColor}40;">
+                        ${item.type}
+                      </span>
+                    </div>
+
+                    <div class="card-text text-secondary">
+                      <p class="mb-2 small d-flex align-items-baseline">
+                        <i class="fa-solid fa-location-dot me-2 text-muted" style="width: 14px;"></i>
+                        <span>
+                          <span class="badge bg-light text-dark border me-1 px-2 py-1" style="font-size: 0.7rem;">${item.district}</span>
+                          ${item.address}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="mt-2 pt-2 border-top border-light">
+                    <p class="mb-0 small">
+                      <i class="fa-solid fa-phone me-2 text-muted" style="width: 14px;"></i>
+                      <a href="tel:${item.phone}" class="text-decoration-none text-secondary hover-link">${item.phone}</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        cardsContainer.innerHTML = htmlString;
+      }
+
+      function filterData() {
+        const districtValue = selectDistrict.value;
+        const typeValue = selectType.value;
+
+        const filteredResult = pet_Date.filter(function (item) {
+          const matchDistrict =
+            districtValue === "all" || item.district === districtValue;
+          const matchType = typeValue === "all" || item.type === typeValue;
+          return matchDistrict && matchType;
+        });
+
+        renderData(filteredResult);
+      }
+
+      selectDistrict.addEventListener("change", filterData);
+      selectType.addEventListener("change", filterData);
+
+      renderData(pet_Date);
+    </script>
+  </body>
+</html>
